@@ -16,6 +16,9 @@ GeoSpeakerApp.views.Viewport = Ext.extend(Ext.Panel, {
 		GeoSpeakerApp.views.Viewport.superclass.initComponent.apply(this, arguments);	
     },
 
+	geoUpdate: function() {
+		
+	}
     /* reveal: function(target, direction) {
 		direction = typeof(direction) != 'undefined' ? direction : 'left';
 		

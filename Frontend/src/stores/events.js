@@ -1,7 +1,7 @@
 //Store for Events
 GeoSpeakerApp.stores.Events = new Ext.data.Store({
 	model: 'User',
-	autoLoad: true,
+	autoLoad: false,
 	data: [],
 	proxy: {
         type: 'scripttag',

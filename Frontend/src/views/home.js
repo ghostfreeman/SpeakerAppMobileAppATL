@@ -7,17 +7,24 @@ GeoSpeakerApp.views.Home = Ext.extend(Ext.Panel, {
 	initComponent: function(){				
 		// Start the section
 		var topToolbar, bottomToolbar, list;
-		
+	
+		list = new Ext.List({
+			fullscreen: true,
+			itemTpl : '{name}',
+			store: GeoSpeakerApp.stores.Events
+		});
+	
 		topToolbar = new Ext.TabBar({
 			dock: "top",
 			ui: 'light',
 			layout: 'hbox',
-			scroll: 'horizontal',
+			height: 50,
 			items: [
 				{
 					xtype: 'button',
 					text: 'Create Event',
 					ui: 'action',
+					flex: 1,
 					handler: function() {
 						console.log("Hello, This is the part where I kill you.");
 					}
@@ -25,30 +32,34 @@ GeoSpeakerApp.views.Home = Ext.extend(Ext.Panel, {
 				}
 			]
 		});
-		
+
 		bottomToolbar = new Ext.TabBar({
 			dock: "bottom",
 			ui: 'dark',
 			layout: 'hbox',
-			items: [
-				new Ext.form.FormPanel({
-					items: [
-						{
-							xtype: 'button',
-							text: 'Update',
-							ui: 'action',
-							handler: function() {
-								console.log("Machiavellian!");
-							}
-						}
-					]
-				})
-			]
+			height: 50,
+			items: [{
+					xtype: 'sliderfield',
+					name : 'radius',
+					label: 'Radius',
+					id: 'radius',
+					flex: 1,
+					value: 5,
+					minValue: 1,
+					maxValue: 10
+				},{
+					xtype: 'button',
+					text: 'Update',
+					ui: 'action',
+					flex: 1,
+					handler: function() {
+						console.log("Machiavellian!");
+					}
+				}]
 		});
 		
         Ext.apply(this, {
-			items: [
-			],
+			items: [],
 			dockedItems: [bottomToolbar, topToolbar]	
         });
 
